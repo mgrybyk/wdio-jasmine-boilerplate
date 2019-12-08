@@ -1,21 +1,21 @@
-# webdriverio-devtools
+# wdio-jasmine-boilerplate
 
-<!-- [START badges] -->
-[![Build Status](https://travis-ci.org/mgrybyk/webdriverio-devtools.svg?branch=master)](https://travis-ci.org/mgrybyk/webdriverio-devtools)
-<!-- [END badges] -->
-
-> [WebdriverIO](https://github.com/webdriverio/webdriverio) with [Chrome DevTools Protocol](https://webdriver.io/docs/automationProtocols.html#devtools-protocolv)
+> [WebdriverIO](https://github.com/webdriverio/webdriverio) Jasmine + expect-webdriverio + TypeScript boilerplate
 
 ## Using
-- `devtools` automation protocol
-- TypeScript
-- expect-webdriverio
+ - Jasmine
+ - [expect-webdriverio](https://github.com/mgrybyk/expect-webdriverio)
+ - TypeScript
+ - selenium-standalone
 
 ## Getting Started
 1. `npm install`
-2. `npm test` to run in headful mode or `npm run test:headless` to run in headless mode
+2. `npm test`
 
 ## Additional Features
  - VSCode debug configs to run single/all test(s)
  - headless/headful Chrome modes, toggle by `CHROME_HEADLESS` env variable
- - tests are running in [CI](https://travis-ci.org/mgrybyk/webdriverio-devtools/builds/)
+ - tests are running in CI
+
+## Requirements
+ - JDK
