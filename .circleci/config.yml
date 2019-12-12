@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: atools/chrome-headless:java8-node12-latest
+      - image: atools/chrome-headless:java11-node12-latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
