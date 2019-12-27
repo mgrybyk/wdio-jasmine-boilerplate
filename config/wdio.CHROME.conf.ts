@@ -1,7 +1,7 @@
 import { config } from './wdio.conf'
 
 const SELENIUM_VERSION = '3.141.59'
-const CHROMEDRIVER_VERSION = '78.0.3904.105'
+const CHROMEDRIVER_VERSION = '79.0.3945.36'
 
 // https://github.com/GoogleChrome/puppeteer/blob/e17d38c61b2b39ec485c3bcb20976afa2b4cc5b5/lib/Launcher.js#L38
 const CHROME_ARGS = [
