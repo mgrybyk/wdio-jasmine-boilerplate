@@ -6,13 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: atools/chrome-headless:java11-node12-latest
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
+      - image: node:12
 
     working_directory: ~/repo
 
@@ -33,6 +27,47 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: google-chrome --version
       - run: npm run compile && npm run lint
-      - run: CHROME_HEADLESS=true npm test
+
+  test-chrome:
+    docker:
+      - image: atools/chrome-headless:java11-node12-latest
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: npm install
+
+      - run: google-chrome --version
+      - run: npm run test:headless -- --chrome
+
+  test-firefox:
+    docker:
+      - image: atools/chrome-firefox:java11-node12-latest
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: npm install
+
+      - run: firefox --version
+      - run: npm run compile && npm run lint
+      - run: npm run test:headless -- --firefox

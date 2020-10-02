@@ -1,17 +1,17 @@
 import { config } from './wdio.conf'
-import { CHROME_ARGS } from './chromeArgs'
 
 const seleniumConfig = {
     version: '3.141.59',
-    drivers: { chrome: { version: '85.0.4183.87' } },
+    drivers: { firefox: { version: '0.27.0' } },
 }
 
-const browserOptions: WebDriver.ChromeOptions & { args: Array<string> } = {
-    args: [
-        ...CHROME_ARGS,
-        ...(process.argv.includes('--headless') ? ['--headless', '--no-sandbox'] : []),
-        '--window-size=1920,1080',
-    ],
+const browserOptions: WebDriver.FirefoxOptions & { args: Array<string> } = {
+    prefs: {
+        'browser.tabs.remote.autostart': false,
+        'toolkit.telemetry.reportingpolicy.firstRun': false,
+        'startup.homepage_welcome_url.additional': 'about:blank',
+    },
+    args: process.argv.includes('--headless') ? ['-headless'] : [],
 }
 
 const seleniumOpts = config.services?.find(
@@ -25,8 +25,8 @@ const browserConfig: WebdriverIO.Config = {
     ...config,
     capabilities: [
         {
-            browserName: 'chrome',
-            'goog:chromeOptions': browserOptions,
+            browserName: 'firefox',
+            'moz:firefoxOptions': browserOptions,
         },
     ],
 }
