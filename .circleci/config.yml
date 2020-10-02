@@ -52,7 +52,7 @@ jobs:
 
   test-firefox:
     docker:
-      - image: atools/chrome-firefox:java11-node12-latest
+      - image: atools/firefox-headless:java11-node12-latest
 
     working_directory: ~/repo
 
