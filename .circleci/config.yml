@@ -71,3 +71,14 @@ jobs:
       - run: firefox --version
       - run: npm run compile && npm run lint
       - run: npm run test:headless -- --firefox
+
+workflows:
+  version: 2
+  build:
+      jobs:
+          - build
+
+  test:
+      jobs:
+          - test-firefox
+          - test-chrome

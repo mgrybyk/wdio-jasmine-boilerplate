@@ -1,6 +1,6 @@
 # wdio-jasmine-boilerplate
 
-[![CircleCI](https://circleci.com/gh/mgrybyk/wdio-jasmine-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/mgrybyk/wdio-jasmine-boilerplate/tree/master)
+[![CircleCI](https://circleci.com/gh/mgrybyk/wdio-jasmine-boilerplate.svg?style=svg)](https://circleci.com/gh/mgrybyk/wdio-jasmine-boilerplate)
 
 > [WebdriverIO](https://github.com/webdriverio/webdriverio) Jasmine + TypeScript boilerplate
 
