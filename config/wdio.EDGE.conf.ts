@@ -4,10 +4,11 @@ import { setSeleniumArgs } from './utils'
 
 const seleniumConfig = {
     version: '3.141.59',
-    drivers: { chrome: { version: '85.0.4183.87' } },
+    drivers: { chromiumedge: { version: '85.0.564.70' } },
 }
 
-const browserOptions: WebDriver.ChromeOptions & { args: Array<string> } = {
+// @ts-ignore https://github.com/webdriverio/webdriverio/pull/5956
+const browserOptions: WebDriver.MicrosoftEdgeOptions & { args: Array<string> } = {
     args: [
         ...CHROME_ARGS,
         ...(process.argv.includes('--headless') ? ['--headless', '--no-sandbox'] : []),
@@ -21,8 +22,9 @@ const browserConfig: WebdriverIO.Config = {
     ...config,
     capabilities: [
         {
-            browserName: 'chrome',
-            'goog:chromeOptions': browserOptions,
+            // @ts-ignore https://github.com/webdriverio/webdriverio/pull/5956
+            browserName: 'MicrosoftEdge',
+            'ms:edgeOptions': browserOptions,
         },
     ],
 }

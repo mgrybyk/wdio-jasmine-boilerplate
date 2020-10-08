@@ -1,3 +1,4 @@
+import { setSeleniumArgs } from './utils'
 import { config } from './wdio.conf'
 
 const seleniumConfig = {
@@ -14,12 +15,7 @@ const browserOptions: WebDriver.FirefoxOptions & { args: Array<string> } = {
     args: process.argv.includes('--headless') ? ['-headless'] : [],
 }
 
-const seleniumOpts = config.services?.find(
-    (service) => Array.isArray(service) && service[0] === 'selenium-standalone'
-) as SeleniumStandaloneOptions
-
-seleniumOpts.args = { ...seleniumConfig }
-seleniumOpts.installArgs = { ...seleniumConfig }
+setSeleniumArgs(config, seleniumConfig)
 
 const browserConfig: WebdriverIO.Config = {
     ...config,

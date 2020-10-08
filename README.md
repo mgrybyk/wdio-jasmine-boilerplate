@@ -20,7 +20,7 @@
 
 -   VSCode debug configs to run single/all test(s)
 -   headless/headful browser modes, toggle by passing `--headless` arg
--   Chrome/Firefox browsers, toggle by passing `--firefox` arg
+-   Chrome/Firefox/Edge browsers, toggle by passing `--firefox` or `--edge` arg
 -   tests are running in CI
 
 ## Requirements
