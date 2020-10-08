@@ -1,10 +1,7 @@
-import { setSeleniumArgs } from './utils'
 import { config } from './wdio.conf'
+import { setSeleniumArgs } from './utils'
 
-const seleniumConfig = {
-    version: '3.141.59',
-    drivers: { firefox: { version: '0.27.0' } },
-}
+setSeleniumArgs(config, { firefox: { version: '0.27.0' } })
 
 const browserOptions: WebDriver.FirefoxOptions & { args: Array<string> } = {
     prefs: {
@@ -14,8 +11,6 @@ const browserOptions: WebDriver.FirefoxOptions & { args: Array<string> } = {
     },
     args: process.argv.includes('--headless') ? ['-headless'] : [],
 }
-
-setSeleniumArgs(config, seleniumConfig)
 
 const browserConfig: WebdriverIO.Config = {
     ...config,
