@@ -2,7 +2,7 @@ import { config } from './wdio.conf'
 import { CHROME_ARGS } from './chromeArgs'
 import { setSeleniumArgs } from './utils'
 
-setSeleniumArgs(config, { chrome: { version: '85.0.4183.87' } })
+setSeleniumArgs(config, { chrome: { version: '86.0.4240.22' } })
 
 const browserOptions: WebDriver.ChromeOptions & { args: Array<string> } = {
     args: [
